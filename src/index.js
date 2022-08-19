@@ -1,13 +1,33 @@
-const express = require("express");
-const dotenv = require("dotenv").config();
+const express = require('express');
+const dotenv = require('dotenv').config();
 const app = express();
+
 const port = process.env.PORT || 3000;
-const mongoose = require("./config/database");
+const cors = require('./config/cors');
+const db = require('./config/database');
 
+const UserRouter = require('./users/userRouter');
+const BuildingRouter = require('./buildings/buildingRouter');
+const BeaconRouter = require('./beacons/beaconRouter');
+const AuthRouter = require('./auth/authRouter');
+const FcmRouter = require('./fcmToken/tokenRouter')
+
+const path = require('path');
+
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("Connected to server successfully!");
+app.use(FcmRouter)
+app.use(UserRouter);
+app.use(BuildingRouter);
+app.use(BeaconRouter);
+app.use(AuthRouter);
+
+app.use(cors);
+
+app.get('/', (req, res) => {
+  res.send('Connected to server successfully!');
 });
 
 app.listen(port, () => {
