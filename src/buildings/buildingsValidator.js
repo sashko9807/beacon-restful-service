@@ -1,5 +1,5 @@
 const { check, validationResult } = require('express-validator');
-const BuildingService = require('./BuildingService');
+const BuildingService = require('./buildingService');
 
 module.exports = {
   buildingValidator: [
