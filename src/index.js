@@ -18,11 +18,11 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(FcmRouter)
-app.use(UserRouter);
-app.use(BuildingRouter);
-app.use(BeaconRouter);
-app.use(AuthRouter);
+app.use('/api/v1', FcmRouter)
+app.use('/api/v1', UserRouter);
+app.use('/api/v1', BuildingRouter);
+app.use('/api/v1', BeaconRouter);
+app.use('/api/v1', AuthRouter);
 
 app.use(cors);
 
