@@ -11,8 +11,17 @@ const BuildingRouter = require('./buildings/buildingRouter');
 const BeaconRouter = require('./beacons/beaconRouter');
 const AuthRouter = require('./auth/authRouter');
 const FcmRouter = require('./fcmToken/tokenRouter')
+const fs = require('fs')
 
 const path = require('path');
+const UPLOAD_DIR = path.join(__dirname, '../uploads')
+
+if (!fs.existsSync(UPLOAD_DIR)) {
+  console.log('Upload folder doesn\'t exist. Creating it now...')
+  fs.mkdirSync(UPLOAD_DIR);
+  fs.mkdirSync(`${UPLOAD_DIR}/beacons`);
+  fs.mkdirSync(`${UPLOAD_DIR}/buildings`)
+}
 
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use(express.json());
