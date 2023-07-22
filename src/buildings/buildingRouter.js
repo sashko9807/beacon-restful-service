@@ -11,7 +11,7 @@ const { buildingValidator, validationResult } = require('./buildingsValidator');
 const deleteAsset = require('../utils/deleteAsset')
 
 
-router.post('/building/add', upload.single('image'), jwtVerification, buildingValidator, async (req, res) => {
+router.post('/building', upload.single('image'), jwtVerification, buildingValidator, async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     if (req.file) {
@@ -46,7 +46,7 @@ router.post('/building/add', upload.single('image'), jwtVerification, buildingVa
     .send({ status: 'Success', message: 'Successfully added new building' });
 });
 
-router.get('/building/:userId', jwtVerification, async (req, res) => {
+router.get('/building', jwtVerification, async (req, res) => {
   const owner = req.userId;
   const buildings = await BuildingService.findBuildingByOwner(owner);
   res.json(buildings);

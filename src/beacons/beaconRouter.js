@@ -17,7 +17,7 @@ const path = require('path')
 
 const BEACON_IMG_DIR = path.join(__dirname, '../../uploads/beacons')
 
-router.post('/beacon/', upload.single('data'), beaconAdd, async (req, res) => {
+router.post('/beacon', upload.single('data'), beaconAdd, async (req, res) => {
   const { beaconData, name, atFloor, buildingData, dataType, data } =
     req.body;
 
@@ -69,7 +69,7 @@ router.post('/beacon/', upload.single('data'), beaconAdd, async (req, res) => {
     .send({ status: 'Success', message: 'Beacon has been added successfully' });
 });
 
-router.put('/beacon/:id', upload.single("data"), beaconUpdate, async (req, res) => {
+router.put('/beacon/:id/edit', upload.single("data"), beaconUpdate, async (req, res) => {
   const { name, atFloor, dataType, data } = req.body
   const { id } = req.params
   const errors = validationResult(req);
@@ -127,7 +127,7 @@ router.put('/beacon/:id', upload.single("data"), beaconUpdate, async (req, res) 
   });
 });
 
-router.delete('/beacon/:beaconID', async (req, res) => {
+router.delete('/beacon/:beaconID/delete', async (req, res) => {
   const beaconID = req.query.id
   const beacon = await BeaconService.deleteBeaconById(beaconID);
   if (!beacon)
