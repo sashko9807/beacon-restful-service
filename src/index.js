@@ -21,7 +21,7 @@ if (!fs.existsSync(UPLOAD_DIR)) {
   fs.mkdirSync(UPLOAD_DIR);
   fs.mkdirSync(`${UPLOAD_DIR}/beacons`);
   fs.mkdirSync(`${UPLOAD_DIR}/buildings`)
-  fs.renameSync(`NoImageAvailable.png`, `${UPLOAD_DIR}/buildings/NoImageAvailable.png`)
+  fs.copyFileSync(`NoImageAvailable.png`, `${UPLOAD_DIR}/buildings/NoImageAvailable.png`)
 }
 
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
