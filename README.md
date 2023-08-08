@@ -8,6 +8,7 @@ A restful service handling the business logic, necessary for BeaconMS and Beacon
 
 - [Node.js](https://nodejs.org/en/download)
 - Existing firebase account
+- [Docker](https://www.docker.com/get-started/) with [Docker Compose v2](https://docs.docker.com/compose/)
 - (\*optional) Sendgrid account
 
 #### Setting up Firebase Cloud Messaging
@@ -20,7 +21,8 @@ A restful service handling the business logic, necessary for BeaconMS and Beacon
 
 1. Run `cp .env.example .env`
 2. Fill the required settings from the `Enviroment variables` table
-3. Run `npm run start`
+3. Run `docker-compose up -d` to setup local mongodb instance <br> _Local mongo-express instance is available at `http://localhost:8081`_
+4. Run `npm run start`
 
 #### Enviroment variables
 
