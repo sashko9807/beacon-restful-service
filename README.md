@@ -24,13 +24,13 @@ A restful service handling the business logic, necessary for BeaconMS and Beacon
 
 #### Enviroment variables
 
-| Setting                    | Description                                       | Mandatory |
-| -------------------------- | ------------------------------------------------- | --------- |
-| `DB_CONN`                  | MONGODB connection URI                            | required  |
-| `PORT`                     | Running port of local server                      | required  |
-| `ACCESS_TOKEN`             | Access Token secret                               | required  |
-| `REFRESH_TOKEN`            | Refresh token secret                              | required  |
-| `ACCESS_TOKEN_EXPIRATION`  | Access token expiration time in format`Xd Xm Xs`  | required  |
-| `REFRESH_TOKEN_EXPIRATION` | Refresh token expiration time in format`Xd Xm Xs` | required  |
+| Setting                    | Description                                       | Mandatory | Default value                                                |
+| -------------------------- | ------------------------------------------------- | --------- | ------------------------------------------------------------ |
+| `DB_CONN`                  | MONGODB connection URI                            | required  | `mongodb://admin:admin@localhost:27017/bms?authSource=admin` |
+| `PORT`                     | Running port of local server                      | required  | `3001`                                                       |
+| `ACCESS_TOKEN`             | Access Token secret                               | required  | `access-token-secret`                                        |
+| `REFRESH_TOKEN`            | Refresh token secret                              | required  | `refresh-token-secret`                                       |
+| `ACCESS_TOKEN_EXPIRATION`  | Access token expiration time in format`Xd Xm Xs`  | required  | `15m`                                                        |
+| `REFRESH_TOKEN_EXPIRATION` | Refresh token expiration time in format`Xd Xm Xs` | required  | `1d`                                                         |
 | `SENDER_EMAIL`             | Sender of email                                   | optional  |
 | `SENDGRID_API_KEY`         | Api key needed for using Sendgrid service         | optional  |
