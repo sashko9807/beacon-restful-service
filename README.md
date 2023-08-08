@@ -20,9 +20,10 @@ A restful service handling the business logic, necessary for BeaconMS and Beacon
 #### Setting up development server
 
 1. Run `cp .env.example .env`
-2. Fill the required settings from the `Enviroment variables` table
-3. Run `docker-compose up -d` to setup local mongodb instance <br> _Local mongo-express instance is available at `http://localhost:8081`_
-4. Run `npm run start`
+2. Run `npm install`
+3. Fill the required settings from the `Enviroment variables` table
+4. Run `docker-compose up -d` to setup local mongodb instance <br> _Local mongo-express instance is available at `http://localhost:8081`_
+5. Run `npm run start`
 
 #### Enviroment variables
 
