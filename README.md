@@ -13,7 +13,7 @@ A restful service handling the business logic, necessary for BeaconMS and Beacon
 
 #### Setting up Firebase Cloud Messaging
 
-1. Create new firebase project, and turn on Cloud Messaging API.
+1. Go to [firebase console](https://console.firebase.google.com/) and select existing, or create new project. The project should be the same as [BeaconScanner](https://github.com/sashko9807/BeaconScanner)
 2. Go to Project settings -> Service account -> Firebase Admin SDK -> Generate new private key
 3. Copy the generated private key in the root directory of the project, then rename it to "firebase.json"
 
