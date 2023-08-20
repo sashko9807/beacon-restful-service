@@ -13,7 +13,7 @@ module.exports = (sendTo, subject, text) => {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
     to: `${sendTo}`, // Change to your recipient
-    from: `admin@diplomna-bms.tk`, // Change to your verified sender
+    from: process.env.SENDER_EMAIL, // Change to your verified sender
     subject: `[DO NOT REPLY] ${subject}`,
     text: `${text}`,
   };
